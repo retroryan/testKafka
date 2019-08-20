@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: producer
+  labels:
+    app: producer
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producer
+  template:
+    metadata:
+      labels:
+        app: producer
+        version: v1
+    spec:
+      containers:
+      - name: producer
+        image: gcr.io/none-219021/producer:0.3
+        env:
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: host
+
+        - name: TOPC
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: topic
+
+        - name: EVENTS
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: events

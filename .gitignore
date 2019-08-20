@@ -1,0 +1,17 @@
+/.idea/
+/target/
+/project/target/
+/project/scalafmt
+*.DS_Store*
+*target*
+/log/
+/logs/
+*.sc
+*.iml
+
+*.log
+
+*.env
+terraform/.terraform
+
+*.rpm

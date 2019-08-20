@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  host: "my-cluster-kafka-bootstrap:9092"
+  topic: "my-topic"
+  events: "20"
